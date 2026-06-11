@@ -173,7 +173,7 @@ if st.button("🚀 Generate Customer Segments"):
 
         st.info(
             f"""
-```
+
 
 Cluster {cluster}
 
@@ -181,7 +181,7 @@ Customers: {len(cluster_data)}
 """
 )
 
-```
+
     # -------------------------
     # Download Results
     # -------------------------
