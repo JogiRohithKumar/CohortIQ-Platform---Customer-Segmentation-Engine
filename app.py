@@ -104,6 +104,20 @@ if uploaded_file is not None:
             title="Customer Segmentation"
         )
 
+        st.subheader("Cluster Distribution")
+
+        fig2 = px.pie(
+            summary,
+            names="Cluster",
+            values="Customer Count",
+            title="Customer Distribution by Cluster"
+        )
+        
+        st.plotly_chart(
+            fig2,
+            use_container_width=True
+        )
+
         st.plotly_chart(fig, use_container_width=True)
 
         st.subheader("Segment Summary")
@@ -142,29 +156,22 @@ if uploaded_file is not None:
         st.subheader("Business Recommendations")
         
         for cluster in cluster_profiles.index:
-        
-            income = cluster_profiles.loc[
-                cluster,
-                "Annual Income (k$)"
-            ]
-        
-            spending = cluster_profiles.loc[
-                cluster,
-                "Spending Score (1-100)"
-            ]
-        
-        if income > 70 and spending > 70:
+
+        income = cluster_profiles.iloc[cluster][0]
+        spending = cluster_profiles.iloc[cluster][1]
+    
+        if income >= 70 and spending >= 70:
     
             st.success(
                 f"⭐ Cluster {cluster}: Premium Customers → Luxury Product Campaigns"
             )
-        
-        elif income < 40 and spending < 40:
+    
+        elif income <= 40 and spending <= 40:
     
             st.warning(
                 f"💰 Cluster {cluster}: Budget Customers → Discount Campaigns"
             )
-        
+    
         else:
     
             st.info(
