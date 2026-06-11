@@ -5,37 +5,69 @@ import plotly.express as px
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
+# -------------------------
+
+# Page Config
+
+# -------------------------
+
 st.set_page_config(
 page_title="Customer Segmentation Engine",
 page_icon="📊",
 layout="wide"
 )
 
+# -------------------------
+
+# Title
+
+# -------------------------
+
 st.title("📊 Customer Segmentation Engine")
 
-st.markdown("""
+st.markdown(
+"""
 Upload a customer dataset and discover meaningful customer segments using machine learning.
-""")
+"""
+)
+
+# -------------------------
+
+# File Upload
+
+# -------------------------
 
 uploaded_file = st.file_uploader(
 "Upload CSV File",
 type=["csv"]
 )
 
+# -------------------------
+
+# Main App
+
+# -------------------------
+
 if uploaded_file is not None:
+
+
 df = pd.read_csv(uploaded_file)
 
-st.success("Dataset Loaded Successfully")
+st.success("✅ Dataset Loaded Successfully")
 
 # -------------------------
 # Dataset Preview
 # -------------------------
 
 st.subheader("Dataset Preview")
-st.dataframe(df.head())
+
+st.dataframe(
+    df.head(),
+    use_container_width=True
+)
 
 # -------------------------
-# Dataset Metrics
+# Dataset Information
 # -------------------------
 
 st.subheader("Dataset Information")
@@ -49,7 +81,10 @@ with col2:
     st.metric("Columns", df.shape[1])
 
 with col3:
-    st.metric("Missing Values", df.isnull().sum().sum())
+    st.metric(
+        "Missing Values",
+        int(df.isnull().sum().sum())
+    )
 
 st.divider()
 
@@ -60,27 +95,31 @@ st.divider()
 st.subheader("Feature Selection")
 
 numeric_cols = list(
-    df.select_dtypes(include=["int64", "float64"]).columns
+    df.select_dtypes(
+        include=["int64", "float64"]
+    ).columns
 )
 
 if len(numeric_cols) < 2:
-    st.error("Dataset must contain at least two numeric columns.")
+    st.error(
+        "Dataset must contain at least two numeric columns."
+    )
     st.stop()
-
-default_features = numeric_cols[:2]
 
 selected_features = st.multiselect(
     "Select Features for Segmentation",
-    numeric_cols,
-    default=default_features
+    options=numeric_cols,
+    default=numeric_cols[:2]
 )
 
 if len(selected_features) < 2:
-    st.warning("Please select at least two features.")
+    st.warning(
+        "Please select at least two features."
+    )
     st.stop()
 
 # -------------------------
-# Cluster Settings
+# Clustering Settings
 # -------------------------
 
 st.subheader("Clustering Settings")
@@ -93,7 +132,7 @@ k = st.slider(
 )
 
 # -------------------------
-# Run Segmentation
+# Run Clustering
 # -------------------------
 
 if st.button("🚀 Generate Customer Segments"):
@@ -116,21 +155,24 @@ if st.button("🚀 Generate Customer Segments"):
 
     result_df["Cluster"] = clusters
 
-    st.success("Segmentation Completed Successfully")
+    st.success(
+        "🎉 Customer Segmentation Completed Successfully"
+    )
 
     # -------------------------
-    # Cluster Visualization
+    # Visualization
     # -------------------------
 
-    st.subheader("Customer Segments Visualization")
+    st.subheader(
+        "Customer Segments Visualization"
+    )
 
     fig = px.scatter(
         result_df,
         x=selected_features[0],
         y=selected_features[1],
         color=result_df["Cluster"].astype(str),
-        title="Customer Segmentation",
-        hover_data=result_df.columns
+        title="Customer Segmentation"
     )
 
     st.plotly_chart(
@@ -155,15 +197,20 @@ if st.button("🚀 Generate Customer Segments"):
         "Customer Count"
     ]
 
-    st.dataframe(summary)
+    st.dataframe(
+        summary,
+        use_container_width=True
+    )
 
     # -------------------------
-    # Cluster Details
+    # Segment Cards
     # -------------------------
 
     st.subheader("Cluster Details")
 
-    for cluster in sorted(result_df["Cluster"].unique()):
+    for cluster in sorted(
+        result_df["Cluster"].unique()
+    ):
 
         cluster_data = result_df[
             result_df["Cluster"] == cluster
@@ -179,12 +226,13 @@ Customers: {len(cluster_data)}
 """
 )
 
-
     # -------------------------
     # Download Results
     # -------------------------
 
-    csv = result_df.to_csv(index=False)
+    csv = result_df.to_csv(
+        index=False
+    )
 
     st.download_button(
         label="📥 Download Segmented Dataset",
@@ -192,5 +240,10 @@ Customers: {len(cluster_data)}
         file_name="segmented_customers.csv",
         mime="text/csv"
     )
+
 else:
-st.info("Please upload a CSV file to continue.")
+
+st.info(
+    "📁 Please upload a CSV file to continue."
+)
+
