@@ -1,5 +1,3 @@
-# CohortIQ | Customer Intelligence Platform
-[![Live App](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B?logo=streamlit&logoColor=white)](https://customer-segmentation-engine-lo7qvs67rqmxk3sir5e6ey.streamlit.app/)
 # CohortIQ | AI-Powered Customer Intelligence Platform
 
 [![Live App](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B?logo=streamlit\&logoColor=white)](https://customer-segmentation-engine-lo7qvs67rqmxk3sir5e6ey.streamlit.app)
