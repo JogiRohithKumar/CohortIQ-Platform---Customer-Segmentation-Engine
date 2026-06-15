@@ -3,8 +3,7 @@ import pandas as pd
 
 # 1. Platform Configuration & Page Styling
 st.set_page_config(
-    page_title="CohortIQ | Customer Intelligence Platform",
-    page_icon="📊",
+    page_title="CohortIQ Platform",
     layout="wide",
     initial_sidebar_state="expanded"
 )
