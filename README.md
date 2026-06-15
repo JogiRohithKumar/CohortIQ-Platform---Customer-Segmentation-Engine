@@ -30,45 +30,21 @@ CohortIQ addresses this problem by automating customer segmentation and analytic
 
 ## Key Features
 
-### Customer Segmentation
+| Customer Segmentation                                                                                                                                                           | AutoML Optimization                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Automated customer grouping using clustering algorithms<br>• Identification of high-value, regular, and low-engagement customers<br>• Visual exploration of customer segments | • Automatic evaluation of clustering configurations<br>• Silhouette Score-based model selection<br>• Reduced need for manual parameter tuning |
 
-* Automated customer grouping using clustering algorithms
-* Identification of high-value, regular, and low-engagement customers
-* Visual exploration of customer segments
+| Customer Health Scoring                                                                                                                  | Anomaly Detection                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| • Calculates customer health using Recency, Frequency, and Monetary (RFM) metrics<br>• Identifies declining customer engagement patterns | • Detects unusual customer behavior using Isolation Forest<br>• Flags customers with abnormal spending or engagement changes |
 
-### AutoML Optimization
+| AI Business Advisor                                                                                                                                                         | Interactive Analytics Dashboard                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| • Generates business-friendly insights from customer data<br>• Provides retention and marketing recommendations<br>• Converts analytical outputs into actionable strategies | • Customer distribution visualization<br>• Segment-level insights<br>• KPI monitoring<br>• Trend analysis |
 
-* Automatic evaluation of clustering configurations
-* Silhouette Score-based model selection
-* Reduced need for manual parameter tuning
-
-### Customer Health Scoring
-
-* Calculates customer health using Recency, Frequency, and Monetary (RFM) metrics
-* Identifies declining customer engagement patterns
-
-### Anomaly Detection
-
-* Detects unusual customer behavior using Isolation Forest
-* Flags customers with abnormal spending or engagement changes
-
-### AI Business Advisor
-
-* Generates business-friendly insights from customer data
-* Provides retention and marketing recommendations
-* Converts analytical outputs into actionable strategies
-
-### Interactive Analytics Dashboard
-
-* Customer distribution visualization
-* Segment-level insights
-* KPI monitoring
-* Trend analysis
-
-### Export & Reporting
-
-* Download segmented customer datasets
-* Generate summary reports for business decision-making
+| Export & Reporting                                                                                |
+| ------------------------------------------------------------------------------------------------- |
+| • Download segmented customer datasets<br>• Generate summary reports for business decision-making |
 
 ---
 
@@ -118,41 +94,75 @@ Health Scores   Anomaly Detection
 
 ## Machine Learning Pipeline
 
-### Data Preprocessing
+```text
+[ Data Preprocessing ]
+(Missing Value Handling • Feature Selection • Dataset Validation)
+                │
+                ▼
+[ Feature Scaling ]
+(RobustScaler)
+Reduces the impact of extreme spending outliers and improves clustering performance
+                │
+                ▼
+[ Clustering Algorithms ]
+      ├── K-Means
+      │   • Customer Segmentation
+      │   • Distance-Based Clustering
+      │   • Fast and Scalable
+      │
+      └── DBSCAN
+          • Density-Based Clustering
+          • Handles Irregular Cluster Shapes
+          • Identifies Noise Points
+                │
+                ▼
+[ Cluster Evaluation ]
+(Silhouette Score)
+Evaluates clustering quality and selects the most appropriate segmentation model
+                │
+                ▼
+[ Anomaly Detection ]
+(Isolation Forest)
+Detects abnormal customer behavior and potential churn indicators
+```
+
+### Pipeline Components
+
+#### Data Preprocessing
 
 * Missing value handling
 * Feature selection
 * Dataset validation
 
-### Feature Scaling
+#### Feature Scaling
 
 * RobustScaler
 
 Used to reduce the impact of extreme spending outliers and improve clustering performance.
 
-### Clustering Algorithms
+#### Clustering Algorithms
 
-#### K-Means
+##### K-Means
 
 * Customer segmentation
 * Distance-based clustering
 * Fast and scalable
 
-#### DBSCAN
+##### DBSCAN
 
 * Density-based clustering
 * Handles irregular cluster shapes
 * Identifies noise points
 
-### Cluster Evaluation
+#### Cluster Evaluation
 
-#### Silhouette Score
+##### Silhouette Score
 
 Used to evaluate clustering quality and select the most appropriate segmentation model.
 
-### Anomaly Detection
+#### Anomaly Detection
 
-#### Isolation Forest
+##### Isolation Forest
 
 Detects abnormal customer behavior and potential churn indicators.
 
@@ -160,35 +170,15 @@ Detects abnormal customer behavior and potential churn indicators.
 
 ## Tech Stack
 
-### Programming Language
-
-* Python
-
-### Frontend & UI
-
-* Streamlit
-
-### Data Processing
-
-* Pandas
-* NumPy
-
-### Machine Learning
-
-* Scikit-Learn
-
-### Data Visualization
-
-* Plotly
-
-### Development Environment
-
-* Jupyter Notebook
-* VS Code
-
-### Deployment
-
-* Streamlit Cloud
+| Category                | Technologies              |
+| ----------------------- | ------------------------- |
+| Programming Language    | Python                    |
+| Frontend & UI           | Streamlit                 |
+| Data Processing         | Pandas, NumPy             |
+| Machine Learning        | Scikit-Learn              |
+| Data Visualization      | Plotly                    |
+| Development Environment | Jupyter Notebook, VS Code |
+| Deployment              | Streamlit Cloud           |
 
 ---
 
@@ -319,10 +309,6 @@ Built a user-friendly interface for non-technical users to explore customer insi
 
 ## Author
 
-**Rohith Kumar**
-
-Computer Science Engineering Student
-
+**Rohith Kumar Jogi**
 GitHub: https://github.com/JogiRohithKumar
-
-LinkedIn:https://www.linkedin.com/in/rohith-kumar-jogi-747a782b8
+LinkedIn: https://www.linkedin.com/in/rohith-kumar-jogi-747a782b8
